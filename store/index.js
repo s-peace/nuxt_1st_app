@@ -4,9 +4,18 @@ const createStore = () => {
   return new Vuex.Store({
     state: function(){
       return {
-        message: 'This is store message!';
+        message: 'count number',
+        counter: 0,
       };
     },
+    mutations: {
+      count: function(state,n){
+        state.counter += n;
+      },
+      reset: function(state){
+        state.counter = 0;
+      }
+    }
   })
 }
 

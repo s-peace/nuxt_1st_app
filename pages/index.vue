@@ -1,9 +1,17 @@
 <template>
   <section class="container">
     <h1>{{title}}</h1>
-    <p>{{message}}</p>
+    <p>{{$store.state.message}}</p>
     <hr>
-    <router-link to="/other">Go to Other</router-link>
+    <div class="link"
+        @click.exact="$store.commit('count',1)" 
+        @click.shift="$store.commit('count',2)" 
+        @click.ctrl="$store.commit('count',3)">
+      <a @click.stop="$store.commit('reset')">
+        clicked: {{$store.state.counter}}
+      </a>
+    </div>
+    <!-- <router-link to="/other">Go to Other</router-link> -->
   </section>
 </template>
 
@@ -12,17 +20,8 @@ export default {
   data: function(){
     return {
       title: 'hello',
-      message: 'this is message.',
-      now: 'wait...',
+      message: 'this is message',
     };
-  },
-  created: function(){
-    setInterval(()=>{
-      let d = new Date();
-      this.now = d.getHours()
-                + ':' + d.getMinutes()
-                + ':' + d.getSeconds();
-    },1000);
   },
 };
 </script>
@@ -47,5 +46,11 @@ pre {
 hr {
   margin: 10px 0;
 }
-
+a {
+  font-size: 16px;
+}
+.link {
+  background-color: #def;
+  padding: 10px;
+}
 </style>
