@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import createPersisitedState from "vuex-persistedstate";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -20,6 +21,9 @@ const createStore = () => {
         state.message = "reset now...";
       },
     },
+    plugins: [
+      createPersisitedState(),
+    ],
     actions: {
       doit: function(context){
         let n = Math.floor(Math.random() * 10);
