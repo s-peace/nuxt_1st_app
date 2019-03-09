@@ -10,7 +10,23 @@
         clicked: {{$store.state.counter}}
       </a>
     </div>
-    <!-- <router-link to="/sother">Go to Other</router-link> -->
+    <table>
+      <th>
+        <th>Ohter</th>
+        <td><router-link to="/sother">Go to Other</router-link></td>
+    
+      </th>
+      <th>
+        <th>Memo</th>
+        <td><router-link to="/memo">Go to Memo</router-link></td>
+      </th>
+      <th>
+        <th>axios</th>
+        <td><router-link to="axios">Go to axios</router-link></td>
+      </th>
+    </table>
+    
+    
   </section>
 </template>
 
@@ -51,5 +67,15 @@ a {
 .link {
   background-color: #def;
   padding: 10px;
+}
+table {
+  padding: 5px;
+  background-color: #dff;
+}
+/* table th {
+  border-right: 1px solid #000;
+} */
+table td {
+  border: 1px solid #000;
 }
 </style>
