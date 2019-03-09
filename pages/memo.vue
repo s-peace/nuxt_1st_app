@@ -64,9 +64,7 @@ export default {
     };
   },
   computed: {
-    memo: function(){
-      return this.$store.statememo.memo;
-    },
+    memo: function(){return this.$store.state.memo.memo;},
     page_items: function(){
       if(this.find_flg){
         let arr = [];
@@ -74,16 +72,16 @@ export default {
         data.forEach(element => {
           if(element.title.toLowerCase().indexOf(this.title.toLowerCase()) >= 0){
             arr.push(element);
-          };
+          }
         });
+        console.log(arr);
         return arr;
       } else if (this.sel_flg != false){
         return [this.sel_flg];
       } else {
         return this.$store.state.memo.memo.slice(
           this.num_per_page * this.$store.state.memo.page,
-          this.num_per_page * (this.$store.state.memo.page + 1)
-        );
+          this.num_per_page * (this.$store.state.memo.page + 1));
       }
     },
     page: {
@@ -113,7 +111,7 @@ export default {
       this.title = '';
       this.content = '';
     },
-    select: function(){
+    select: function(item){
       this.find_flg = false;
       this.sel_flg = item;
       this.title = item.title;
@@ -129,7 +127,7 @@ export default {
     },
     find: function(){
       this.sel_flg = false;
-      this.find_flg = false;
+      this.find_flg = true;
     },
     next: function(){
       this.page ++;

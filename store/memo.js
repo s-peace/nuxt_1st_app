@@ -13,7 +13,7 @@ export const mutations = {
       + ':' + d.getMinutes();
     state.memo.unshift({
       title: obj.title,
-      conntent: obj.content,
+      content: obj.content,
       created: fmt,
     });
   },
