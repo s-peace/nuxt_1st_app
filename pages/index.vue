@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <h1>{{title}}</h1>
+    qqq
     <p>{{$store.state.message}}</p>
     <hr>
     <div class="link"
